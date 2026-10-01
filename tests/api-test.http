@@ -1,0 +1,35 @@
+### Test 1: Valid support request
+
+POST http://127.0.0.1:5000/support/request
+Content-Type: application/json
+
+{
+    "name": "John",
+    "issue_type": "VPN_ACCESS",
+    "description": "My VPN is not connecting",
+    "priority": "medium"
+}
+
+
+### Test 2: Missing required information
+
+POST http://127.0.0.1:5000/support/request
+Content-Type: application/json
+
+{
+    "name": "John",
+    "issue_type": "VPN_ACCESS"
+}
+
+
+### Test 3: Unsupported issue type
+
+POST http://127.0.0.1:5000/support/request
+Content-Type: application/json
+
+{
+    "name": "John",
+    "issue_type": "COOKING_PROBLEM",
+    "description": "I have a problem",
+    "priority": "medium"
+}
